@@ -36,6 +36,9 @@ export const toaster = createToaster({
   autoFocus: false,
 });
 
+const baseCreate = toaster.create;
+toaster.create = (options) => baseCreate({ ...options, autoFocus: false });
+
 export const Toaster = () => {
   return (
     <Portal>
