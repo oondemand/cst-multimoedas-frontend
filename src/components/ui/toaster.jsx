@@ -33,6 +33,7 @@ import {
 export const toaster = createToaster({
   placement: "bottom-end",
   pauseOnPageIdle: true,
+  autoFocus: false,
 });
 
 export const Toaster = () => {
@@ -40,7 +41,7 @@ export const Toaster = () => {
     <Portal>
       <ChakraToaster toaster={toaster} insetInline={{ mdDown: "4" }}>
         {(toast) => (
-          <Toast.Root width={{ md: "sm" }}>
+          <Toast.Root tabIndex={-1} width={{ md: "sm" }}>
             {toast.type === "loading" ? (
               <Spinner size="sm" color="blue.solid" />
             ) : (
